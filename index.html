@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bgcolor">
+
+    
+    <h1 class="headingprop">Weather Info</h1>
+    <form id="weatherForm">
+        
+        <input class="inputprop" type="text" placeholder="Enter Location" id="location" name="location" required>
+        <button class="buttonprop" type="submit">Get Info</button>
+    </form>
+    <div id="weatherDetails"></div>
+
+    <script>
+        document.getElementById('weatherForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const location = document.getElementById('location').value;
+            const response = await fetch(`/weather?location=${location}`);
+            const data = await response.json();
+            const weatherDetails = document.getElementById('weatherDetails');
+
+            if (data.error) {
+                weatherDetails.innerHTML = `<p>${data.error}</p>`;
+            } else {
+              
+
+
+                weatherDetails.innerHTML = `
+                    <h2>Weather in ${data.location.name}, ${data.location.country}</h2>
+                    <p>Temperature: ${data.current.temperature}°C</p>
+                    <p>Weather Description: ${data.current.weather_descriptions[0]}</p>
+                    <p>Humidity: ${data.current.humidity}%</p>
+                    <p>Wind Speed: ${data.current.wind_speed} km/h</p>
+                `;
+               
+            }
+        });
+    </script>
+    </div>
+</body>
+</html>

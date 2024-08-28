@@ -1,0 +1,27 @@
+.bgcolor{
+    background-image: url("https://farm5.staticflickr.com/4902/44891418625_2056c2bf9f_o.png");
+    height:670px;
+    width:1420px;
+   
+    justify-content: center;
+
+}
+.headingprop{
+    font-size: 60px;
+    font-family:'Times New Roman', Times, serif;
+}
+.inputprop{
+height:40px;
+width:300px;
+margin-left:20px;
+border-radius: 15px;
+background-color: rgb(184, 194, 216);
+}
+.buttonprop{
+    height:40px;
+    width:80px;
+    background-color: rgb(61, 214, 186);
+    margin-left:5px;
+    border-radius:11px;
+
+}
